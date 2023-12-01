@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+    font-family: sans-serif;
+}
+
+:root {
+    --web-color: rgb(2,118,177);
+    --white: rgb(255,255,255);
+    --black: rgb(64,67,64);
+    --light-black: rgb(117,117,117);
+    --green: rgb(37,129,14);
+    --black-3: rgba(0,0,0,.5)
+
+    // radius
+    --radius-50: 50%;
+    --radius-30: 30px;
+    --radius-15: 15px;
+    --radius-5: 5px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px 0px 20px;
+    @include center();
+} 
+
+.container {
+    max-width: 1350px;
+    width: 100%;
+
+    .globalTitle {
+        max-width: 750px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+
+        h2 {
+            font-size: 3.5em;
+            color: var(--black);
+        }
+
+        p {
+            color: var(--light-black);
+            line-height: 28px;
+            font-size: 1.1em;
+        }
+    }
+}
+
+
+
+#footerBottom {
+    width: 100%;
+    @include center();
+    margin-top: 80px;
+    box-shadow:  0 0 15px 5px rgba(0,0,0, .2);
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-flow: row wrap;
+        padding: 15px;
+
+        p {
+            color: var(--light-black);
+
+            span {
+                color: var(--web-color);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1250px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .container {
+        max-width: 700px;
+    }
+}
+@media screen and (max-width: 600px) {   
+    #footerBottom {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .container {
+        .title {
+            h2 {
+                font-size: 12vw;
+            }
+    
+            p {
+                font-size: 1em;
+            }
+        }
+    }
+}

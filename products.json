@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "name": "Միկրոալիքային Վառարան BERG BMW-20W",
+        "price": "300",
+        "images": [
+            "./images/img1/img1.webp",
+            "./images/img1/img2.webp",
+            "./images/img1/img3.webp",
+            "./images/img1/img4.webp"
+        ],
+        "type": "Վառարան"
+    },
+    {
+        "id": 2,
+        "name": "APPLE MacBook Pro 36GB 1TB (Silver)",
+        "price": "3000",
+        "images": [
+            "./images/img5/img1.webp",
+            "./images/img5/img2.webp",
+            "./images/img5/img3.webp",
+            "./images/img5/img4.webp"
+        ],
+        "type": "Նոթբուք"
+    },
+    {
+        "id": 3,
+        "name": "Սմարթ Հեռախոս APPLE IPHONE 15 PRO",
+        "price": "1300",
+        "images": [
+            "./images/img17/img1.webp",
+            "./images/img17/img2.webp",
+            "./images/img17/img3.webp",
+            "./images/img17/img4.webp",
+            "./images/img17/img5.webp"
+        ],
+        "type": "Հեռախոս"
+    },
+    {
+        "id": 4,
+        "name": "Մկնիկ LOGITECH G303 SHROUD EDITION",
+        "price": "200",
+        "images": [
+            "./images/img11/img1.webp",
+            "./images/img11/img2.webp",
+            "./images/img11/img3.webp",
+            "./images/img11/img4.webp"
+        ],
+        "type": "Մկնիկ"
+    },
+    {
+        "id": 5,
+        "name": "Ստեղնաշար ASUS XA02 ROG STRIX SCOPE",
+        "price": "250",
+        "images": [
+            "./images/img13/img1.webp",
+            "./images/img13/img2.webp",
+            "./images/img13/img3.webp",
+            "./images/img13/img4.webp"
+        ],
+        "type": "Ստեղնաշար"
+    },
+    {
+        "id": 6,
+        "name": "Սպասք Լվացող Մեքենա LG RH90V9PV8N",
+        "price": "1000",
+        "images": [
+            "./images/img30/img1.webp",
+            "./images/img30/img2.webp",
+            "./images/img30/img3.webp",
+            "./images/img30/img4.webp",
+            "./images/img30/img5.webp"
+        ],
+        "type": "Սպասք Լվացող"
+    },
+    {
+        "id": 7,
+        "name": "Շոր Չորանոց LG RH90V9PV8N",
+        "price": "1200",
+        "images": [
+            "./images/img27/img1.webp",
+            "./images/img27/img2.webp",
+            "./images/img27/img3.webp",
+            "./images/img27/img4.webp",
+            "./images/img27/img5.webp"
+        ],
+        "type": "Չորանոց"
+    },
+    {
+        "id": 8,
+        "name": "Բջջային Հեռախոս NOKIA 8000 4G DS",
+        "price": "100",
+        "images": [
+            "./images/img21/img1.webp",
+            "./images/img21/img2.webp",
+            "./images/img21/img3.webp",
+            "./images/img21/img4.webp",
+            "./images/img21/img5.webp",
+            "./images/img21/img6.webp"
+        ],
+        "type": "Հեռախոս"
+    },
+    {
+        "id": 9,
+        "name": "Մոնիտոր LG 45GR95QE-B OLED",
+        "price": "2300",
+        "images": [
+            "./images/img14/img1.webp",
+            "./images/img14/img2.webp",
+            "./images/img14/img3.webp",
+            "./images/img14/img4.webp",
+            "./images/img14/img5.webp",
+            "./images/img14/img6.webp",
+            "./images/img14/img7.webp",
+            "./images/img14/img8.webp"
+        ],
+        "type": "Մոնիտոր"
+    },
+    {
+        "id": 10,
+        "name": "Մոնիտոր SAMSUNG Odyssey Ark",
+        "price": "2500",
+        "images": [
+            "./images/img15/img1.webp",
+            "./images/img15/img2.webp",
+            "./images/img15/img3.webp",
+            "./images/img15/img4.webp",
+            "./images/img15/img5.webp",
+            "./images/img15/img6.webp",
+            "./images/img15/img7.webp",
+            "./images/img15/img8.webp",
+            "./images/img15/img9.webp",
+            "./images/img15/img10.webp",
+            "./images/img15/img11.webp",
+            "./images/img15/img12.webp",
+            "./images/img15/img13.webp",
+            "./images/img15/img14.webp",
+            "./images/img15/img15.webp",
+            "./images/img15/img16.webp",
+            "./images/img15/img17.webp",
+            "./images/img15/img18.webp"
+        ],
+        "type": "Մոնիտոր"
+    },
+    {
+        "id": 11,
+        "name": "Կապսուլային Սրճեփներ LAVAZZA LB 900",
+        "price": "150",
+        "images": [
+            "./images/img36/img1.webp",
+            "./images/img36/img2.webp",
+            "./images/img36/img3.webp",
+            "./images/img36/img4.webp"
+        ],
+        "type": "Սրճեփ"
+    },
+    {
+        "id": 12,
+        "name": "Փոշեկուլ ELECTROLUX PC91-ALRG",
+        "price": "400",
+        "images": [
+            "./images/img38/img1.webp",
+            "./images/img38/img2.webp",
+            "./images/img38/img3.webp",
+            "./images/img38/img4.webp"
+        ],
+        "type": "Փոշեկուլ"
+    },
+    {
+        "id": 13,
+        "name": "Ականջակալ APPLE AIRPODS MAX",
+        "price": "850",
+        "images": [
+            "./images/img39/img1.webp",
+            "./images/img39/img2.webp",
+            "./images/img39/img3.webp"
+        ],
+        "type": "Ականջակալ"
+    },
+    {
+        "id": 14,
+        "name": "Սառնարան LG GR-X267ES",
+        "price": "3000",
+        "images": [
+            "./images/img23/img1.webp",
+            "./images/img23/img2.webp",
+            "./images/img23/img3.webp",
+            "./images/img23/img4.webp",
+            "./images/img23/img5.webp",
+            "./images/img23/img6.webp"
+        ],
+        "type": "Սառնարան"
+    }
+]

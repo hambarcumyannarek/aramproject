@@ -10,7 +10,6 @@ function recursia(parentName, element) {
 const bodyWidth =  document.body.offsetWidth;
 
 window.addEventListener('resize', (evn) => {
-    console.log(evn.target.innerWidth);
     let width = evn.target.innerWidth;
     switch(width) {
         case width < 1350 && width > 1150 :  restart(); break;

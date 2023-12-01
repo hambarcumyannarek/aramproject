@@ -57,102 +57,27 @@ html {
   font-size: 1.1em;
 }
 
-.profil {
-  max-width: 300px;
+#footerBottom {
   width: 100%;
-  max-height: 165px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  right: -100%;
-  top: 110px;
-  z-index: 10;
-  bottom: calc(-100% - 100px);
-  visibility: visible;
-  opacity: 0;
-  transition: all 0.5s;
+  margin-top: 80px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
 }
-.profil.active {
-  visibility: visible;
-  opacity: 1;
-  right: 20px;
-}
-.profil .content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-.profil .content .profilTitle {
-  width: 100%;
+#footerBottom .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-flow: row wrap;
+  padding: 15px;
 }
-.profil .content .profilTitle h3 {
-  font-size: 1.3em;
-  font-weight: normal;
-  text-align: center;
+#footerBottom .container p {
+  color: var(--light-black);
 }
-.profil .content .profilTitle i {
-  font-size: 1.5em;
-  color: var(--black);
-  cursor: pointer;
-  transition: all 0.5s;
-}
-.profil .content .profilTitle i:hover {
+#footerBottom .container p span {
   color: var(--web-color);
-}
-.profil .content .btn {
-  width: 100%;
-  padding: 10px 20px;
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
-  text-transform: capitalize;
-  border-radius: 5px;
-  border: 2px solid var(--web-color);
-  background: var(--web-color);
-  font-size: 1.1em;
-  transition: all 0.5s;
-}
-.profil .content .btn:hover {
-  background: white;
-  color: var(--web-color);
-}
-
-.topBtn {
-  position: fixed;
-  top: -100%;
-  right: 20px;
-  opacity: 0;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgb(50, 50, 50);
-  color: var(--white);
-  cursor: pointer;
-  box-shadow: var(--box-shadow);
-  z-index: 10;
-  transition: all 0.5s;
-}
-.topBtn.active {
-  opacity: 1;
-  top: 90%;
-}
-.topBtn i {
-  font-size: 1.2em;
-}
-.topBtn:hover {
-  background: var(--web-color);
 }
 
 @media screen and (max-width: 1250px) {
@@ -163,6 +88,13 @@ html {
 @media screen and (max-width: 950px) {
   .container {
     max-width: 700px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #footerBottom .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -278,6 +210,238 @@ nav .container .icons .menuBtn {
 
 .responsiveMenu {
   display: none;
+}
+
+#shopping {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+#shopping.active {
+  opacity: 1;
+  visibility: visible;
+}
+#shopping.active .aside {
+  transform: translateX(0);
+}
+#shopping .aside::-webkit-scrollbar {
+  width: 8px;
+}
+#shopping .aside::-webkit-scrollbar-track {
+  background: #bbb;
+  border-radius: 10px;
+}
+#shopping .aside::-webkit-scrollbar-thumb {
+  background: var(--web-color);
+  border-radius: 10px;
+}
+#shopping .aside::-webkit-scrollbar-thumb:hover {
+  background: rgb(3, 77, 151);
+}
+#shopping .aside {
+  max-width: 500px;
+  height: 100vh;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  gap: 50px;
+  transition: all 0.3s 0.5s;
+}
+#shopping .aside .top {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+#shopping .aside .top .logo {
+  display: flex;
+  gap: 5px;
+  font-size: 1.3em;
+}
+#shopping .aside .top .logo h3 {
+  color: var(--web-color);
+}
+#shopping .aside .top .logo i {
+  color: var(--web-color);
+}
+#shopping .aside .top .closeShoppingMenu {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--web-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#shopping .aside .top .closeShoppingMenu:hover {
+  background: var(--web-color);
+}
+#shopping .aside .top .closeShoppingMenu:hover i {
+  color: var(--white);
+}
+#shopping .aside .top .closeShoppingMenu i {
+  font-size: 1.5em;
+  color: var(--web-color);
+  transition: 0.5s;
+}
+#shopping .aside .cards {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  gap: 20px;
+}
+#shopping .aside .cards .card {
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+}
+#shopping .aside .cards .card .imgBox {
+  max-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#shopping .aside .cards .card .imgBox img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+#shopping .aside .cards .card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#shopping .aside .cards .card .content .cardTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#shopping .aside .cards .card .content .cardTitle h3 {
+  font-size: 1.3em;
+  font-weight: normal;
+  color: var(--black);
+}
+#shopping .aside .cards .card .content .cardTitle p {
+  color: var(--web-color);
+}
+#shopping .aside .cards .card .content .calculation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns {
+  display: flex;
+  flex-wrap: nowrap;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button:nth-child(1) {
+  background: var(--web-color);
+  color: var(--white);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: all 0.5s;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button:nth-child(1):hover {
+  background: rgb(3, 77, 151);
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button:nth-child(2) {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--black);
+  transition: all 0.5s;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button:nth-child(3) {
+  background: var(--web-color);
+  color: var(--white);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 0.5s;
+}
+#shopping .aside .cards .card .content .calculation .pluseMinuseBtns button:nth-child(3):hover {
+  background: rgb(3, 77, 151);
+}
+#shopping .aside .cards .card .content .calculation .price {
+  font-size: 1.1em;
+  color: var(--ligth-black);
+}
+#shopping .aside .cards .card .content .buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+#shopping .aside .cards .card .content .buttons button {
+  padding: 15px 30px;
+  font-size: 1.1em;
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+}
+#shopping .aside .cards .card .content .buttons button:nth-child(1) {
+  background: red;
+  transition: 0.5s;
+}
+#shopping .aside .cards .card .content .buttons button:nth-child(1):hover {
+  background: darkred;
+}
+#shopping .aside .cards .card .content .buttons button:nth-child(2) {
+  background: var(--web-color);
+  transition: 0.5s;
+}
+#shopping .aside .cards .card .content .buttons button:nth-child(2):hover {
+  background: rgb(3, 77, 151);
+}
+#shopping .aside .bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 20px;
+  gap: 10px;
+}
+#shopping .aside .bottomInfo h3 {
+  font-size: 1.3em;
+  color: var(--black);
+}
+#shopping .aside .bottomInfo .end {
+  display: flex;
+  gap: 10px;
+}
+#shopping .aside .bottomInfo .end span {
+  color: var(--ligth-black);
+  font-size: 1.1em;
 }
 
 @media screen and (max-width: 950px) {
@@ -414,6 +578,26 @@ nav .container .icons .menuBtn {
     max-width: 100%;
     width: 100%;
   }
+  #shopping {
+    z-index: 1001;
+  }
+  #shopping .aside {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  #shopping .aside .cards .card {
+    grid-template-columns: 1fr;
+  }
+  #shopping .aside .cards .card .imgBox {
+    width: 100%;
+    max-height: 250px;
+  }
+  #shopping .aside .cards .card .imgBox .img {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media screen and (max-width: 400px) {
   nav .container .icons {
@@ -447,7 +631,7 @@ nav .container .icons .menuBtn {
   font-size: 1em;
   color: var(--black);
   box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 1;
   width: 40px;
   height: 40px;
   display: flex;
@@ -455,6 +639,7 @@ nav .container .icons .menuBtn {
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  background: var(--white);
   text-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
 }
@@ -479,7 +664,7 @@ nav .container .icons .menuBtn {
   gap: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 1;
 }
 .offerContainer .slider .circle .circleBtn {
   width: 16px;
@@ -542,7 +727,8 @@ nav .container .icons .menuBtn {
 .offerContainer .slider .cont .cards .card .content .top {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: space-between;
+  height: 145px;
 }
 .offerContainer .slider .cont .cards .card .content .top .status {
   font-size: 0.8em;
@@ -553,6 +739,14 @@ nav .container .icons .menuBtn {
   font-size: 1.1em;
   color: var(--black);
   transition: all 0.5s;
+}
+.offerContainer .slider .cont .cards .card .content .top .stars {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+.offerContainer .slider .cont .cards .card .content .top .stars i {
+  color: var(--web-color);
 }
 .offerContainer .slider .cont .cards .card .content .top .address {
   font-size: 0.9em;
@@ -612,6 +806,9 @@ nav .container .icons .menuBtn {
   }
   .section .container .slider .cont .cards .card {
     min-width: 33.3333333333%;
+  }
+  .section .container .slider .cont .cards .card .content .top {
+    height: 155px;
   }
 }
 @media screen and (max-width: 1210px) {
