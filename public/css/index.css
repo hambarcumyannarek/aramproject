@@ -699,11 +699,12 @@ nav .container .icons .menuBtn {
   width: 100%;
   border-radius: 15px;
   gap: 20px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
   transition: all 0.5s;
 }
 .offerContainer .slider .cont .cards .card:hover {
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--web-color);
 }
 .offerContainer .slider .cont .cards .card:hover .cardFooter {
   border-top: 1px solid var(--web-color);

@@ -29,9 +29,9 @@ buyBtn.addEventListener('click', () => {
                     </div>
                     <div class="calculation">
                         <div class="pluseMinuseBtns">
-                            <button class="minuse"><i class="fa-solid fa-minus"></i></button>
+                            <button class="minuse pluseminuseBtn"><i class="fa-solid fa-minus"></i></button>
                             <button class="count">${card.buyCount}</button>
-                            <button class="pluse"><i class="fa-solid fa-plus"></i></button>
+                            <button class="pluse pluseminuseBtn"><i class="fa-solid fa-plus"></i></button>
                         </div>
                         <p class="price">$<span class="gin" data-gin="${card.price}">${+card.price * card.buyCount}</span></p>
                     </div>
@@ -87,10 +87,54 @@ function update() {
         const pluse = card.querySelector('.pluse');
         const count = card.querySelector('.count');
         const minuse = card.querySelector('.minuse');
+        const pluseminuseBtn = card.querySelectorAll('.pluseminuseBtn');
         const price = card.querySelector('.gin');
         const deleteProductBtn = card.querySelector('.deleteProductBtn');
         let limit = 9;
     
+        pluseminuseBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const btnRealName = (btn.getAttribute('class').split(' '))[0];
+                let changeCount = false;
+                let countNum = +count.innerText;
+                if(btnRealName === 'minuse') {
+                    if(+count.innerText > 1) {
+                        count.innerText = (+count.innerText) - 1;
+                        price.innerText = (+count.innerText) * (+price.getAttribute('data-gin'));
+                        totalCount.innerText = +totalCount.innerText - 1;
+                        totalPrice.innerText = +totalPrice.innerText - (+price.getAttribute('data-gin'))
+                        btn.style.pointerEvents = 'none';
+                        changeCount = true;
+                    } else {
+                        alert(`Menq Chenq Karox Araqel 0 apranq`)    
+                    }
+                }
+                if(btnRealName === 'pluse') {
+                    if(+count.innerText < limit) {
+                        count.innerText = countNum + 1;
+                        price.innerText = +count.innerText * (+price.getAttribute('data-gin'));
+                        totalCount.innerText = +totalCount.innerText + 1;
+                        totalPrice.innerText = +totalPrice.innerText + (+price.getAttribute('data-gin')); 
+                        btn.style.pointerEvents = 'none';
+                        changeCount = true;
+                    } else {
+                        alert(`pahestum arka e ${limit}`)    
+                    }
+                }
+
+                if(changeCount) {
+                    fetch(`/buy/${card.getAttribute('id')}`, {
+                        method: 'put',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({newCount: +count.innerText})
+                   }).then(() => {
+                        btn.style.pointerEvents = 'painted';
+                   });   
+                }
+            })
+        })
         deleteProductBtn.addEventListener('click', () => {
             card.style.display = 'none';
             totalCount.innerText = +totalCount.innerText - (+count.innerText);
@@ -98,42 +142,6 @@ function update() {
             fetch(`/buy/${card.getAttribute('id')}`, {
                 method: 'delete'
            })
-        })
-        pluse.addEventListener('click', () => {
-            let countNum = +count.innerText;
-            if(countNum < limit) {
-               count.innerText = countNum + 1;
-               price.innerText = +count.innerText * (+price.getAttribute('data-gin'));
-               totalCount.innerText = +totalCount.innerText + 1;
-               totalPrice.innerText = +totalPrice.innerText + (+price.getAttribute('data-gin')); 
-               fetch(`/buy/${card.getAttribute('id')}`, {
-                    method: 'put',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify({newCount: +count.innerText})
-               })
-               return;
-            } 
-            alert(`pahestum arka e ${limit}`)
-        })
-    
-        minuse.addEventListener('click', () => {
-            if(+count.innerText > 1) {
-                count.innerText = (+count.innerText) - 1;
-                price.innerText = (+count.innerText) * (+price.getAttribute('data-gin'));
-                totalCount.innerText = +totalCount.innerText - 1;
-                totalPrice.innerText = +totalPrice.innerText - (+price.getAttribute('data-gin'))
-                fetch(`/buy/${card.getAttribute('id')}`, {
-                    method: 'put',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify({newCount: +count.innerText})
-               })
-                return;
-              } 
-              alert(`Menq Chenq Karox Araqel 0 apranq`)
         })
     })
 }
