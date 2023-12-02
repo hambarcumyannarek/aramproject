@@ -720,20 +720,16 @@ nav .container .icons .menuBtn {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-#slider .container .sliderBox .imgBox .smallImages {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  width: 100%;
-  padding: 15px 5px 15px 5px;
-  gap: 18px;
-}
 #slider .container .sliderBox .imgBox .smallImages::-webkit-scrollbar {
   width: 5px;
+  height: 7px;
 }
 #slider .container .sliderBox .imgBox .smallImages::-webkit-scrollbar-thumb {
   background: var(--web-color);
   border-radius: 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 #slider .container .sliderBox .imgBox .smallImages::-webkit-scrollbar-thumb:hover {
   background: rgb(3, 77, 151);
@@ -741,6 +737,15 @@ nav .container .icons .menuBtn {
 #slider .container .sliderBox .imgBox .smallImages::-webkit-scrollbar-track {
   background: rgb(56, 71, 95);
   filter: blur(70px);
+  border-radius: 30px;
+}
+#slider .container .sliderBox .imgBox .smallImages {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  padding: 15px 5px 15px 5px;
+  gap: 18px;
 }
 #slider .container .sliderBox .imgBox .smallImages img {
   max-width: 190px;
