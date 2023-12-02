@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a class="logo" href="/">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>AramEle</h3>
+            </a>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">link-2</a></li>
+                <li><a href="#">link-3</a></li>
+                <li><a href="#">link-4</a></li>
+            </ul>
+            <ul class="icons">
+                <li><i class="fa-regular fa-heart"></i></li>
+                <li class="buyBtn"><i class="fa-solid fa-cart-shopping"></i></li>
+                <li class="userBtn"><i class="fa-regular fa-user"></i></li>
+                <li class="menuBtn"><i class="fa-solid fa-bars"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="responsiveMenu">
+        <div class="aside">
+            <div class="top">
+                <a class="logo" href="/">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>AramEle</h3>
+                </a>
+                <i class="fa-solid fa-xmark closeRespMenu"></i>
+            </div>
+            <ul class="links">
+                <a href="/">Home</a>
+                <a href="#">link-2</a>
+                <a href="#">link-3</a>
+                <a href="#">link-4</a>
+            </ul>
+            <div class="bottom">
+                <div class="icons">
+                    <div class="icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="shopping">
+        <div class="aside">
+            <div class="top">
+                <a class="logo" href="index.html">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>AramEle</h3>
+                </a>
+                <div class="closeShoppingMenu">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="cards">
+               
+            </div>
+            <div class="bottomInfo">
+                <h3>Total</h3>
+                <div class="end">
+                    <span class="allCount">0</span>
+                    <span>$ <span class="allGin">56788</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="slider" class="section slider sliderrrr">
+        <div class="container">
+            <div class="sliderBox" id="<%= product.id %>">
+                <div class="imgBox sliderContainer" data-value="0">
+                    <div class="bigImgContainer">
+                        <div class="hidden">
+                            <div class="bigImg">
+                                <% for(let i = 0; i < product.images.length; i++) { %>
+                                    <img src=".<%= product.images[i]%>"> 
+                                <% } %>    
+                            </div>
+                        </div>
+                        <div class="LFbtns">
+                            <button class="left LFbtn" disabled><i class="fa-solid fa-angle-left left"></i></button>
+                            <button class="right LFbtn"><i class="fa-solid fa-chevron-right right"></i></button>
+                        </div>
+                    </div>
+                    <div class="smallImages">
+                        <% for(let i = 0; i < product.images.length; i++) { %>
+                            <img src=".<%= product.images[i]%>"> 
+                        <% } %>   
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="topContent">
+                        <p><%= product.type %></p>
+                        <h2><%= product.name %></h2>
+                        <div class="top">
+                            <span class="price">$<%= product.price %></span>
+        
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequuntur soluta magni repellendus, ipsum blanditiis molestias voluptatem exercitationem consectetur asperiores labore minima sapiente perferendis iure harum impedit velit reprehenderit, cupiditate optio. Quis reprehenderit vel labore, illo assumenda, a mollitia incidunt exercitationem odit nostrum, sint ipsam ipsa rem hic suscipit et.</p>
+                    <div class="buttons">
+                        <button class="add"> Uxxaki Design</button>
+                        <button class="showBigBtn"><i class="fa-regular fa-eye"></i> Show Big Img</button>
+                    </div>
+    
+                    <div class="category">
+                        <p>Product Code: <%= product.id %></p>
+                        <p>Shipping 1 Day</p>
+                        <p>Category: <%= product.type%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="big section">
+        <div class="container">
+            <img src="">
+        </div>
+    </div>
+    <div id="footerBottom">
+        <div class="container">
+            <p>© 2023 Your company. All rights reserved.</p>
+            <p>This Project was Made by <span>Aram Mikalyan</span></p>
+        </div>
+    </div>
+   
+        
+        <script>
+            document.querySelector('.showBigBtn').addEventListener('click', () => {
+                document.querySelector('.big').classList.add('active');
+                const productString = '<%- JSON.stringify(product) %>';
+                
+                document.querySelector('.big').querySelector('img').src = JSON.parse(productString).images[+document.querySelector('.sliderContainer').getAttribute('data-value')];
+            })
+
+            document.querySelector('.big').addEventListener('click', (evn) => {
+                evn.target.className.search('big') !== -1 ? document.querySelector('.big').classList.remove('active') : null;
+            })
+
+            const animationImg = document.querySelector('.big .container');
+
+            animationImg.addEventListener('mousemove', (evn) => {
+                let x = evn.clientX - evn.target.offsetLeft;
+                let y = evn.clientY - evn.target.offsetTop;
+
+                animationImg.querySelector('img').style.transform = 'scale(2)';
+                animationImg.querySelector('img').style.transformOrigin = `${x}px ${y}px`;
+            })
+
+            animationImg.addEventListener('mouseleave', (evn) => {
+                animationImg.querySelector('img').style.transform = 'scale(1)';
+                animationImg.querySelector('img').style.transformOrigin = `center center`;
+            })
+        </script>
+        <script src="./scripts/navbar.js"></script>
+        <script src="./scripts/bigSlider.js"></script>
+</body>
+</html>

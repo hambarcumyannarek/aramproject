@@ -13,12 +13,12 @@
 <body>
     <nav>
         <div class="container">
-            <a class="logo" href="index.html">
+            <a class="logo" href="/">
                 <i class="fa-solid fa-bolt"></i>
                 <h3>AramEle</h3>
             </a>
             <ul class="links">
-                <li><a href="#">link-1</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">link-2</a></li>
                 <li><a href="#">link-3</a></li>
                 <li><a href="#">link-4</a></li>
@@ -35,14 +35,14 @@
     <div class="responsiveMenu">
         <div class="aside">
             <div class="top">
-                <a class="logo" href="index.html">
+                <a class="logo" href="/">
                     <i class="fa-solid fa-bolt"></i>
                     <h3>AramEle</h3>
                 </a>
                 <i class="fa-solid fa-xmark closeRespMenu"></i>
             </div>
             <ul class="links">
-                <a href="#">link-1</a>
+                <a href="/">Home</a>
                 <a href="#">link-2</a>
                 <a href="#">link-3</a>
                 <a href="#">link-4</a>
@@ -81,6 +81,7 @@
             </div>
         </div>
     </div>
+
 
     <div id="hero" class="section">
         <div class="container">
@@ -224,7 +225,7 @@
                                     </div>
                                     <div class="cardFooter">
                                         <div class="info likeBtn"><i class="fa-regular fa-heart"></i></div>
-                                        <div class="info showBtn"><i class="fa-regular fa-eye"></i></div>
+                                        <a class="info showBtn" href="/gallery/<%= products[i].id %>"><i class="fa-regular fa-eye"></i></a>
                                         <div class="info buyBtn"><i class="fa-solid fa-cart-shopping"></i></div>
                                     </div>
                                 </div>
@@ -248,5 +249,6 @@
     <script src="./scripts/sliderCards.js"></script>
     <script src="./scripts/navbar.js"></script>
     <script src="./scripts/calculator.js"></script>
+    <!-- <script src="./scripts/gallery.js"></script> -->
 </body>
 </html>

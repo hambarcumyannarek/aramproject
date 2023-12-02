@@ -7,6 +7,7 @@ nav {
     z-index: 9;
 
     &.active {
+        padding: 25px 20px;
         box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
         background: var(--white);
         animation: .7s nav forwards;
@@ -125,8 +126,8 @@ nav {
     height: 100vh;
     top: 0;
     left: 0;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
     z-index: 10;
     opacity: 0;
     visibility: hidden;
@@ -332,13 +333,15 @@ nav {
                         grid-gap: 10px;
 
                         button {
+                            width: 100%;
                             padding: 15px 30px;
                             font-size: 1.1em;
                             color: var(--white);
+                            background: var(--web-color);
                             border-radius: 5px;
                             cursor: pointer;
 
-                            &:nth-child(1) {
+                            &.deleteProductBtn {
                                 background: red;
                                 transition: .5s;
                                 
@@ -346,15 +349,9 @@ nav {
                                     background: darkred;
                                 }
                             }
-
-                            &:nth-child(2) {
-                                background: var(--web-color);
-                                transition: .5s;
-                                
-                                &:hover {
-                                    background: rgb(3, 77, 151);
-                                }
-                            }
+                        }
+                        a {
+                            @include center();
                         }
                     }
                 }

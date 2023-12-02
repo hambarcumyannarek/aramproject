@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 
 app.set('view engine', 'views');
 app.use(express.static('public'))
+app.use('/gallery', express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,6 +63,18 @@ app.delete('/buy/:id', (req, res) => {
         }
     })
     res.send(buyProducts);
+})
+
+
+app.get('/gallery/:id', async (req, res) => {
+    const productsString = await fs.readFile('products.json', 'utf-8');
+    const productsObj = JSON.parse(productsString);
+
+    let product = productsObj.find(product => product.id === +req.params.id)
+    console.log(product)
+    res.render('gallery.ejs', {
+        product
+    })
 })
 
 

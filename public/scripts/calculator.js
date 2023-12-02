@@ -37,7 +37,7 @@ buyBtn.addEventListener('click', () => {
                     </div>
                     <div class="buttons">
                         <button class="deleteProductBtn"><i class="fa-solid fa-trash"></i></button>
-                        <button>Show</button>
+                        <a href="/gallery/${card.id}"><button>Show</button></a>
                     </div>
                 </div>
             </div>`
