@@ -702,6 +702,12 @@ nav .container .icons .menuBtn {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.5s;
 }
+.offerContainer .slider .cont .cards .card:hover {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+.offerContainer .slider .cont .cards .card:hover .cardFooter {
+  border-top: 1px solid var(--web-color);
+}
 .offerContainer .slider .cont .cards .card .image {
   width: 100%;
   height: 200px;
@@ -767,6 +773,7 @@ nav .container .icons .menuBtn {
   padding: 10px 0px;
   width: 90%;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
 }
 .offerContainer .slider .cont .cards .card .cardFooter .info {
   display: flex;
