@@ -1039,7 +1039,7 @@ nav .container .icons .menuBtn {
 }
 .pictures .container .picture:hover img {
   filter: blur(10px);
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 .pictures .container .picture h3 {
   color: var(--white);

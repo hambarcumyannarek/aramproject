@@ -6,7 +6,7 @@ const app = express();
 app.use(cookieParser());
 app.use((req, res, next) => {
     if (!req.cookies.userID) {
-        res.cookie('userID', Math.random() + '_' + Date.now() + '_' + Math.random(), {httpOnly: true, secure: true});
+        res.cookie('userID', Math.random() + '_' + Date.now() + '_' + Math.random(), { httpOnly: true, secure: true });
     }
     next();
 })
@@ -28,7 +28,7 @@ let buyProducts = [];
 
 app.get('/buy', (req, res) => {
     console.log(buyProducts)
-    res.send(buyProducts.filter(product => product.userID === req.cookies.userID));
+    res.send(buyProducts.filter(product => product.userID === req.cookies.userID).reverse());
 })
 app.post('/buy/:id', async (req, res) => {
     const productsString = await fs.readFile('products.json', 'utf-8');

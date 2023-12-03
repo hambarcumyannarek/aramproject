@@ -46,7 +46,7 @@ function clcikBtn(elm) {
 let sliderContAll = document.querySelectorAll('.sliderContainer');
 
 
-function update() {
+function updateBigSlide() {
     sliderContAll.forEach(cont => {
         const smallImages = cont.querySelectorAll('.smallImages img');
     
@@ -64,7 +64,7 @@ function update() {
     })
 }
 
-update();
+updateBigSlide();
 document.querySelectorAll('.smallImages img')[0].classList.add('active')
 function drowCircule(elm) {    
     const thisCont = recursia(elm);
@@ -75,7 +75,7 @@ function drowCircule(elm) {
     for(let i = 0; i < thisCircule.length; i++) {
         thisIndex !== i ? thisCircule[i].classList.remove('active') : thisCircule[i].classList.add('active');
     }
-    update();
+    updateBigSlide();
 }
 
 function ditablishLR(getCont) {

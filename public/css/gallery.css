@@ -606,9 +606,13 @@ nav .container .icons .menuBtn {
   }
 }
 .big {
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
   position: fixed;
   top: 0;
   left: 0;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -622,15 +626,19 @@ nav .container .icons .menuBtn {
   visibility: visible;
   opacity: 1;
 }
-.big .container {
-  max-width: 900px;
+.big .bigContainer {
+  max-width: 1000px;
+  max-height: 90vh;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
   transition: scale 0.5s;
 }
-.big .container img {
+.big .bigContainer img {
   width: 100%;
-  max-height: 80vh;
+  height: 100%;
   background-size: cover;
+  cursor: zoom-in;
   transition: transform 0.5s;
 }
 

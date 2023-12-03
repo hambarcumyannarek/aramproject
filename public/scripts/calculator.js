@@ -83,6 +83,7 @@ sliderCards.forEach(card => {
 function update() {
     const shoppingCards = document.querySelectorAll('#shopping .cards .card');
     
+    console.log(shoppingCards)
     shoppingCards.forEach(card => {
         const pluse = card.querySelector('.pluse');
         const count = card.querySelector('.count');
@@ -131,6 +132,7 @@ function update() {
                         body: JSON.stringify({newCount: +count.innerText})
                    }).then(() => {
                         btn.style.pointerEvents = 'painted';
+                        btn.style.cursor = 'pointer';
                    });   
                 }
             })
