@@ -68,14 +68,18 @@ shopping.addEventListener('click', (evn) => {
 })
 
 const sliderCards = document.querySelectorAll('.slider .card');
+const cartCount = document.querySelector('.cartCount');
 sliderCards.forEach(card => {
     const buyBtn = card.querySelector('.buyBtn');
     buyBtn.addEventListener('click', () => {
         buyBtn.style.pointerEvents = 'none';
         fetch(`/buy/${card.getAttribute('id')}`, {
             method: "POST"
-        }).then(() => {
+        }).then(info => info.json()).then(avelacvele => {
             buyBtn.style.pointerEvents = 'painted';
+            if(avelacvele.value) {
+                cartCount.innerText = +cartCount.innerText + 1;
+            } 
         })
     })
 })
@@ -143,6 +147,8 @@ function update() {
             totalPrice.innerText = +totalPrice.innerText - (+count.innerText * (+price.getAttribute('data-gin')));
             fetch(`/buy/${card.getAttribute('id')}`, {
                 method: 'delete'
+           }).then(() => {
+                cartCount.innerText = +cartCount.innerText - 1;
            })
         })
     })

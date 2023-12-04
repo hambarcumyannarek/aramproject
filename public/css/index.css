@@ -183,6 +183,24 @@ nav .container .links li:hover:before {
 nav .container .icons {
   gap: 30px;
 }
+nav .container .icons .buyBtn {
+  position: relative;
+}
+nav .container .icons .buyBtn .cartCount {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--web-color);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.9em;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
 nav .container .icons li {
   width: 50px;
   height: 50px;

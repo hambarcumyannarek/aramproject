@@ -18,13 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+let buyProducts = [];
 app.get('/', async (req, res) => {
     const products = await fs.readFile('products.json', 'utf-8');
     console.log(req.cookies.userID);
-    res.render('index.ejs', { products: JSON.parse(products) })
+    res.render('index.ejs', { products: JSON.parse(products), buyProducts })
 })
 
-let buyProducts = [];
 
 app.get('/buy', (req, res) => {
     console.log(buyProducts)
@@ -36,15 +36,15 @@ app.post('/buy/:id', async (req, res) => {
 
     const findProduct = productsObj.find(product => product.id === +req.params.id);
     if (!findProduct) {
-        return res.send();
+        return res.send({});
     }
     if (!buyProducts.find(card => card.id === +req.params.id)) {
         findProduct.userID = req.cookies.userID;
         findProduct.buyCount = 1;
         buyProducts.push(findProduct);
-        return res.send();
+        return res.send({ value: true });
     }
-    return res.send({ value: true });
+    return res.send({});
 })
 
 app.put('/buy/:id', (req, res) => {
@@ -73,7 +73,8 @@ app.get('/gallery/:id', async (req, res) => {
     let product = productsObj.find(product => product.id === +req.params.id)
     console.log(product)
     res.render('gallery.ejs', {
-        product
+        product,
+        buyProducts
     })
 })
 

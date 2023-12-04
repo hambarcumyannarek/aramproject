@@ -23,7 +23,7 @@
             </ul>
             <ul class="icons">
                 <li><i class="fa-regular fa-heart"></i></li>
-                <li class="buyBtn"><i class="fa-solid fa-cart-shopping"></i></li>
+                <li class="buyBtn"><span class="cartCount"><%= buyProducts.length %></span><i class="fa-solid fa-cart-shopping"></i></li>
                 <li class="userBtn"><i class="fa-regular fa-user"></i></li>
                 <li class="menuBtn"><i class="fa-solid fa-bars"></i></li>
             </ul>
@@ -183,9 +183,13 @@
                 addGalleyBtn.style.pointerEvents = 'none';
                 fetch(`/buy/${document.querySelector('.sliderBox').getAttribute('id')}`, {
                     method: "POST"
-                }).then(() => {
+                }).then(info => info.json()).then(avelacvele => {
                     addGalleyBtn.style.pointerEvents = 'painted';
                     addGalleyBtn.style.cursor = 'pointer';
+
+                    if(avelacvele.value) {
+                        cartCount.innerText = +cartCount.innerText + 1;
+                    } 
                 })
             })
             document.querySelector('.showBigBtn').addEventListener('click', () => {
