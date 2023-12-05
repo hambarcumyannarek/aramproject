@@ -38,7 +38,7 @@ app.post('/buy/:id', async (req, res) => {
     if (!findProduct) {
         return res.send({});
     }
-    if (!buyProducts.find(card => card.id === +req.params.id)) {
+    if (!buyProducts.find(card => card.id === +req.params.id && card.userID === req.cookies.userID)) {
         findProduct.userID = req.cookies.userID;
         findProduct.buyCount = 1;
         buyProducts.push(findProduct);
@@ -49,7 +49,7 @@ app.post('/buy/:id', async (req, res) => {
 
 app.put('/buy/:id', (req, res) => {
     buyProducts.map(card => {
-        if (card.id === +req.params.id) {
+        if (card.id === +req.params.id && card.userID === req.cookies.userID) {
             card.buyCount = req.body.newCount;
         }
     })
@@ -58,11 +58,11 @@ app.put('/buy/:id', (req, res) => {
 
 app.delete('/buy/:id', (req, res) => {
     buyProducts = buyProducts.filter(card => {
-        if (card.id !== +req.params.id) {
+        if (card.id !== +req.params.id && card.userID === req.cookies.userID) {
             return card;
         }
     })
-    res.send(buyProducts);
+    res.send(buyProducts.filter(product => product.userID === req.cookies.userID));
 })
 
 
@@ -74,7 +74,7 @@ app.get('/gallery/:id', async (req, res) => {
     console.log(product)
     res.render('gallery.ejs', {
         product,
-        buyProducts
+        buyProducts: buyProducts.filter(product => product.userID === req.cookies.userID)
     })
 })
 
