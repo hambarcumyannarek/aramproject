@@ -58,7 +58,7 @@ app.put('/buy/:id', (req, res) => {
 
 app.delete('/buy/:id', (req, res) => {
     buyProducts = buyProducts.filter(card => {
-        if (card.id !== +req.params.id && card.userID === req.cookies.userID) {
+        if (!(card.id === +req.params.id && card.userID === req.cookies.userID)) {
             return card;
         }
     })
