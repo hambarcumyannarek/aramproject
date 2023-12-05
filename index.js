@@ -22,7 +22,7 @@ let buyProducts = [];
 app.get('/', async (req, res) => {
     const products = await fs.readFile('products.json', 'utf-8');
     console.log(req.cookies.userID);
-    res.render('index.ejs', { products: JSON.parse(products), buyProducts })
+    res.render('index.ejs', { products: JSON.parse(products), buyProducts:  buyProducts.filter(product => product.userID === req.cookies.userID)})
 })
 
 
